@@ -1,0 +1,172 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:Enivate.ResponseHub.Responsys.UI.Assets">
+
+	<SolidColorBrush x:Key="TimerBackgroundOk" Color="#FF62C970" />
+	<SolidColorBrush x:Key="TimerBackgroundWarning" Color="#FFFFBA1D" />
+	<SolidColorBrush x:Key="TimerBackgroundDanger" Color="#FFB52B1C" />
+    <SolidColorBrush x:Key="NonEmergencyJobForeground" Color="#FFF58220" />
+	<SolidColorBrush x:Key="EmergencyJobForeground" Color="#FFB52B1C" />
+
+	<Style TargetType="{x:Type Window}">
+		<Setter Property="FontFamily" Value="Trebuchet MS" />
+		<Setter Property="Foreground" Value="#FF333333" />
+	</Style>
+
+	<Style TargetType="Grid" x:Key="TimerGridOk">
+		<Setter Property="Background" Value="{StaticResource TimerBackgroundOk}" />
+	</Style>
+
+	<Style TargetType="Grid" x:Key="TimerGridWarning">
+		<Setter Property="Background" Value="{StaticResource TimerBackgroundWarning}" />
+	</Style>
+
+	<Style TargetType="Grid" x:Key="TimerGridDanger">
+		<Setter Property="Background" Value="{StaticResource TimerBackgroundDanger}" />
+	</Style>
+
+	<Style BasedOn="{StaticResource {x:Type Label}}" TargetType="Label" x:Key="TimerLabel">
+		<Setter Property="FontSize" Value="180" />
+		<Setter Property="Margin" Value="0,50" />
+		<Setter Property="Foreground" Value="#FFFFFFFF" />
+		<Setter Property="HorizontalAlignment" Value="Center" />
+	</Style>
+
+	<Style BasedOn="{StaticResource {x:Type Label}}" TargetType="Label" x:Key="JobNumberLabel">
+		<Setter Property="FontSize" Value="60" />
+		<Setter Property="Margin" Value="0,25,0,15" />
+		<Setter Property="HorizontalAlignment" Value="Center" />
+		<Setter Property="FontWeight" Value="Bold" />
+        <Setter Property="Foreground" Value="{StaticResource NonEmergencyJobForeground}" />
+	</Style>
+
+	<Style BasedOn="{StaticResource JobNumberLabel}" TargetType="Label" x:Key="JobNumberLabelEmergency">
+		<Setter Property="Foreground" Value="{StaticResource EmergencyJobForeground}" />
+	</Style>
+
+	<Style BasedOn="{StaticResource {x:Type Label}}" TargetType="Label" x:Key="GridReferenceLabel">
+		<Setter Property="FontSize" Value="42" />
+		<Setter Property="Margin" Value="0,15" />
+		<Setter Property="HorizontalAlignment" Value="Center" />
+		<Setter Property="FontWeight" Value="Bold" />
+	</Style>
+
+	<Style BasedOn="{StaticResource {x:Type Label}}" TargetType="Label" x:Key="AddressLabel">
+		<Setter Property="FontSize" Value="36" />
+		<Setter Property="Margin" Value="0,15,0,0" />
+		<Setter Property="HorizontalAlignment" Value="Center" />
+	</Style>
+
+	<Style BasedOn="{StaticResource {x:Type TextBlock}}" TargetType="TextBlock" x:Key="LatestJob">
+		<Setter Property="FontSize" Value="14" />
+		<Setter Property="Margin" Value="10,0,10,8" />
+		<Setter Property="HorizontalAlignment" Value="Left" />
+	</Style>
+
+	<Style BasedOn="{StaticResource {x:Type Label}}" TargetType="Label" x:Key="LatestJobsTitle">
+		<Setter Property="FontSize" Value="14" />
+		<Setter Property="FontWeight" Value="Bold" />
+		<Setter Property="Margin" Value="6,4" />
+		<Setter Property="HorizontalAlignment" Value="Left" />
+	</Style>
+    
+    <!--
+        Report Styles
+    -->
+    <Style BasedOn="{StaticResource {x:Type Paragraph}}" TargetType="Paragraph" x:Key="ReportJobNumber">
+        <Setter Property="Foreground" Value="#FF333333" />
+        <Setter Property="FontSize" Value="28" />
+        <Setter Property="LineHeight" Value="28" />
+        <Setter Property="FontWeight" Value="Bold" />
+        <Setter Property="TextAlignment" Value="Center" />
+        <Setter Property="Margin" Value="0" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="BorderBrush" Value="#FFFFFFFF" />
+        <Setter Property="Foreground" Value="{StaticResource NonEmergencyJobForeground}" />
+    </Style>
+
+    <Style BasedOn="{StaticResource ReportJobNumber}" TargetType="Paragraph" x:Key="ReportJobNumberEmergency">
+        <Setter Property="Foreground" Value="{StaticResource EmergencyJobForeground}" />
+    </Style>
+
+    <Style BasedOn="{StaticResource {x:Type Paragraph}}" TargetType="Paragraph" x:Key="ReportTimestamp">
+        <Setter Property="Foreground" Value="#FF333333" />
+        <Setter Property="FontSize" Value="18" />
+        <Setter Property="LineHeight" Value="10" />
+        <Setter Property="FontWeight" Value="Bold" />
+        <Setter Property="TextAlignment" Value="Center" />
+        <Setter Property="Margin" Value="0,10,0,0" />
+        <Setter Property="BorderThickness" Value="0" />
+    </Style>
+
+    <Style BasedOn="{StaticResource {x:Type Paragraph}}" TargetType="Paragraph" x:Key="ReportMapReference">
+        <Setter Property="Foreground" Value="#FF333333" />
+        <Setter Property="FontSize" Value="20" />
+        <Setter Property="LineHeight" Value="20" />
+        <Setter Property="FontWeight" Value="Bold" />
+        <Setter Property="TextAlignment" Value="Center" />
+        <Setter Property="Margin" Value="0,10,0,0" />
+        <Setter Property="BorderThickness" Value="0" />
+    </Style>
+
+    <Style BasedOn="{StaticResource {x:Type Paragraph}}" TargetType="Paragraph" x:Key="ReportAddress">
+        <Setter Property="Foreground" Value="#FF333333" />
+        <Setter Property="FontSize" Value="18" />
+        <Setter Property="LineHeight" Value="18" />
+        <Setter Property="TextAlignment" Value="Center" />
+        <Setter Property="Margin" Value="0,10,0,0" />
+        <Setter Property="BorderThickness" Value="0" />
+    </Style>
+
+    <Style BasedOn="{StaticResource {x:Type Paragraph}}" TargetType="Paragraph" x:Key="ReportMessageContent">
+        <Setter Property="Foreground" Value="#FF333333" />
+        <Setter Property="FontSize" Value="18" />
+        <Setter Property="LineHeight" Value="18" />
+        <Setter Property="TextAlignment" Value="Center" />
+        <Setter Property="Margin" Value="0,15,0,0" />
+        <Setter Property="BorderThickness" Value="0" />
+    </Style>
+
+    <Style TargetType="Image" x:Key="ReportMapImage">
+        <Setter Property="Height" Value="450" />
+        <Setter Property="Width" Value="450" />
+        <Setter Property="Margin" Value="0,15,0,0" />
+    </Style>
+
+    <Style BasedOn="{StaticResource {x:Type Paragraph}}" TargetType="Paragraph" x:Key="ReportMapImageContainer">
+        <Setter Property="Margin" Value="0" />
+        <Setter Property="TextAlignment" Value="Center" />
+    </Style>
+
+    <Style BasedOn="{StaticResource {x:Type Paragraph}}" TargetType="Paragraph" x:Key="ReportApplianceCodes">
+        <Setter Property="Foreground" Value="#FF333333" />
+        <Setter Property="FontSize" Value="10" />
+        <Setter Property="TextAlignment" Value="Center" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="Margin" Value="0,0,0,0" />
+    </Style>
+
+    <Style TargetType="TableCell" x:Key="ReportNameListCell">
+        <Setter Property="BorderBrush" Value="#FF555555" />
+        <Setter Property="BorderThickness" Value="0,0,0.5,0.5" />
+    </Style>
+
+    <Style BasedOn="{StaticResource {x:Type Paragraph}}" TargetType="Paragraph" x:Key="ReportEmptyCellParagrapgh">
+        <Setter Property="Margin" Value="0,1" />
+        <Setter Property="FontSize" Value="10" />
+    </Style>
+
+    <Style BasedOn="{StaticResource {x:Type Paragraph}}" TargetType="Paragraph" x:Key="ReportCellName">
+        <Setter Property="Margin" Value="5,1,1,1" />
+        <Setter Property="FontWeight" Value="Bold" />
+        <Setter Property="FontSize" Value="10" />
+    </Style>
+
+    <Style BasedOn="{StaticResource {x:Type Paragraph}}" TargetType="Paragraph" x:Key="ReportCellDrCl">
+        <Setter Property="Margin" Value="0,1" />
+        <Setter Property="FontWeight" Value="Bold" />
+        <Setter Property="TextAlignment" Value="Center" />
+        <Setter Property="FontSize" Value="10" />
+    </Style>
+
+</ResourceDictionary>

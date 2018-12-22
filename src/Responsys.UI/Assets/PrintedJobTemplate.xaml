@@ -1,0 +1,370 @@
+﻿<FlowDocument xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+              xmlns:local="clr-namespace:Enivate.ResponseHub.Responsys.UI.Assets"
+              xmlns:printing="clr-namespace:Enivate.ResponseHub.Responsys.UI.Printing"
+              FontSize="14" FontFamily="Arial">
+
+    <Section TextAlignment="Center" Margin="0,30,0,0" BorderThickness="1" BorderBrush="White">
+        <Table BorderThickness="0.5,0.5,0,0" CellSpacing="0" BorderBrush="#FF555555" Margin="150,0">
+            <Table.Columns>
+                <TableColumn Width="4*" />
+                <TableColumn Width="4*" />
+                <TableColumn Width="4*" />
+                <TableColumn Width="4*" />
+            </Table.Columns>
+            <TableRowGroup>
+                <TableRow>
+                    <TableCell Style="{StaticResource ReportNameListCell}">
+                        <Paragraph Style="{StaticResource ReportCellName}">Enroute:</Paragraph>
+                    </TableCell>
+                    <TableCell Style="{StaticResource ReportNameListCell}">
+                        <Paragraph Style="{StaticResource ReportCellDrCl}">On scene</Paragraph>
+                    </TableCell>
+                    <TableCell Style="{StaticResource ReportNameListCell}">
+                        <Paragraph Style="{StaticResource ReportCellDrCl}">Job clear</Paragraph>
+                    </TableCell>
+                    <TableCell Style="{StaticResource ReportNameListCell}">
+                        <Paragraph Style="{StaticResource ReportCellName}">In station:</Paragraph>
+                    </TableCell>
+                </TableRow>
+                <TableRow>
+                    <TableCell Style="{StaticResource ReportNameListCell}">
+                        <Paragraph Style="{StaticResource ReportEmptyCellParagrapgh}"></Paragraph>
+                    </TableCell>
+                    <TableCell Style="{StaticResource ReportNameListCell}">
+                        <Paragraph Style="{StaticResource ReportEmptyCellParagrapgh}"></Paragraph>
+                    </TableCell>
+                    <TableCell Style="{StaticResource ReportNameListCell}">
+                        <Paragraph Style="{StaticResource ReportEmptyCellParagrapgh}"></Paragraph>
+                    </TableCell>
+                    <TableCell Style="{StaticResource ReportNameListCell}">
+                        <Paragraph Style="{StaticResource ReportEmptyCellParagrapgh}"></Paragraph>
+                    </TableCell>
+                </TableRow>
+            </TableRowGroup>
+        </Table>
+    </Section>
+    <Section TextAlignment="Center" Margin="0,10,0,0" BorderThickness="1" BorderBrush="White">
+        <Table BorderThickness="0.5,0.5,0,0" CellSpacing="0" BorderBrush="#FF555555" Margin="100,0">
+            <Table.Columns>
+                <TableColumn Width="40*" />
+                <TableColumn Width="40" />
+                <TableColumn Width="40" />
+                <TableColumn Width="40" />
+                <TableColumn Width="40*" />
+                <TableColumn Width="40" />
+                <TableColumn Width="40" />
+                <TableColumn Width="40" />
+            </Table.Columns>
+            <TableRowGroup>
+                <TableRow>
+                    <TableCell Style="{StaticResource ReportNameListCell}">
+                        <Paragraph Style="{StaticResource ReportCellName}">Name:</Paragraph>
+                    </TableCell>
+                    <TableCell Style="{StaticResource ReportNameListCell}">
+                        <Paragraph Style="{StaticResource ReportCellDrCl}">AP</Paragraph>
+                    </TableCell>
+                    <TableCell Style="{StaticResource ReportNameListCell}">
+                        <Paragraph Style="{StaticResource ReportCellDrCl}">DR</Paragraph>
+                    </TableCell>
+                    <TableCell Style="{StaticResource ReportNameListCell}">
+                        <Paragraph Style="{StaticResource ReportCellDrCl}">CL</Paragraph>
+                    </TableCell>
+                    <TableCell Style="{StaticResource ReportNameListCell}">
+                        <Paragraph Style="{StaticResource ReportCellName}">Name:</Paragraph>
+                    </TableCell>
+                    <TableCell Style="{StaticResource ReportNameListCell}">
+                        <Paragraph Style="{StaticResource ReportCellDrCl}">AP</Paragraph>
+                    </TableCell>
+                    <TableCell Style="{StaticResource ReportNameListCell}">
+                        <Paragraph Style="{StaticResource ReportCellDrCl}">DR</Paragraph>
+                    </TableCell>
+                    <TableCell Style="{StaticResource ReportNameListCell}">
+                        <Paragraph Style="{StaticResource ReportCellDrCl}">CL</Paragraph>
+                    </TableCell>
+                </TableRow>
+                <TableRow>
+                    <TableCell Style="{StaticResource ReportNameListCell}">
+                        <Paragraph Style="{StaticResource ReportEmptyCellParagrapgh}"></Paragraph>
+                    </TableCell>
+                    <TableCell Style="{StaticResource ReportNameListCell}">
+                        <Paragraph Style="{StaticResource ReportEmptyCellParagrapgh}"></Paragraph>
+                    </TableCell>
+                    <TableCell Style="{StaticResource ReportNameListCell}">
+                        <Paragraph Style="{StaticResource ReportEmptyCellParagrapgh}"></Paragraph>
+                    </TableCell>
+                    <TableCell Style="{StaticResource ReportNameListCell}">
+                        <Paragraph Style="{StaticResource ReportEmptyCellParagrapgh}"></Paragraph>
+                    </TableCell>
+                    <TableCell Style="{StaticResource ReportNameListCell}">
+                        <Paragraph Style="{StaticResource ReportEmptyCellParagrapgh}"></Paragraph>
+                    </TableCell>
+                    <TableCell Style="{StaticResource ReportNameListCell}">
+                        <Paragraph Style="{StaticResource ReportEmptyCellParagrapgh}"></Paragraph>
+                    </TableCell>
+                    <TableCell Style="{StaticResource ReportNameListCell}">
+                        <Paragraph Style="{StaticResource ReportEmptyCellParagrapgh}"></Paragraph>
+                    </TableCell>
+                    <TableCell Style="{StaticResource ReportNameListCell}">
+                        <Paragraph Style="{StaticResource ReportEmptyCellParagrapgh}"></Paragraph>
+                    </TableCell>
+                </TableRow>
+                <TableRow>
+                    <TableCell Style="{StaticResource ReportNameListCell}">
+                        <Paragraph Style="{StaticResource ReportEmptyCellParagrapgh}"></Paragraph>
+                    </TableCell>
+                    <TableCell Style="{StaticResource ReportNameListCell}">
+                        <Paragraph Style="{StaticResource ReportEmptyCellParagrapgh}"></Paragraph>
+                    </TableCell>
+                    <TableCell Style="{StaticResource ReportNameListCell}">
+                        <Paragraph Style="{StaticResource ReportEmptyCellParagrapgh}"></Paragraph>
+                    </TableCell>
+                    <TableCell Style="{StaticResource ReportNameListCell}">
+                        <Paragraph Style="{StaticResource ReportEmptyCellParagrapgh}"></Paragraph>
+                    </TableCell>
+                    <TableCell Style="{StaticResource ReportNameListCell}">
+                        <Paragraph Style="{StaticResource ReportEmptyCellParagrapgh}"></Paragraph>
+                    </TableCell>
+                    <TableCell Style="{StaticResource ReportNameListCell}">
+                        <Paragraph Style="{StaticResource ReportEmptyCellParagrapgh}"></Paragraph>
+                    </TableCell>
+                    <TableCell Style="{StaticResource ReportNameListCell}">
+                        <Paragraph Style="{StaticResource ReportEmptyCellParagrapgh}"></Paragraph>
+                    </TableCell>
+                    <TableCell Style="{StaticResource ReportNameListCell}">
+                        <Paragraph Style="{StaticResource ReportEmptyCellParagrapgh}"></Paragraph>
+                    </TableCell>
+                </TableRow>
+                <TableRow>
+                    <TableCell Style="{StaticResource ReportNameListCell}">
+                        <Paragraph Style="{StaticResource ReportEmptyCellParagrapgh}"></Paragraph>
+                    </TableCell>
+                    <TableCell Style="{StaticResource ReportNameListCell}">
+                        <Paragraph Style="{StaticResource ReportEmptyCellParagrapgh}"></Paragraph>
+                    </TableCell>
+                    <TableCell Style="{StaticResource ReportNameListCell}">
+                        <Paragraph Style="{StaticResource ReportEmptyCellParagrapgh}"></Paragraph>
+                    </TableCell>
+                    <TableCell Style="{StaticResource ReportNameListCell}">
+                        <Paragraph Style="{StaticResource ReportEmptyCellParagrapgh}"></Paragraph>
+                    </TableCell>
+                    <TableCell Style="{StaticResource ReportNameListCell}">
+                        <Paragraph Style="{StaticResource ReportEmptyCellParagrapgh}"></Paragraph>
+                    </TableCell>
+                    <TableCell Style="{StaticResource ReportNameListCell}">
+                        <Paragraph Style="{StaticResource ReportEmptyCellParagrapgh}"></Paragraph>
+                    </TableCell>
+                    <TableCell Style="{StaticResource ReportNameListCell}">
+                        <Paragraph Style="{StaticResource ReportEmptyCellParagrapgh}"></Paragraph>
+                    </TableCell>
+                    <TableCell Style="{StaticResource ReportNameListCell}">
+                        <Paragraph Style="{StaticResource ReportEmptyCellParagrapgh}"></Paragraph>
+                    </TableCell>
+                </TableRow>
+                <TableRow>
+                    <TableCell Style="{StaticResource ReportNameListCell}">
+                        <Paragraph Style="{StaticResource ReportEmptyCellParagrapgh}"></Paragraph>
+                    </TableCell>
+                    <TableCell Style="{StaticResource ReportNameListCell}">
+                        <Paragraph Style="{StaticResource ReportEmptyCellParagrapgh}"></Paragraph>
+                    </TableCell>
+                    <TableCell Style="{StaticResource ReportNameListCell}">
+                        <Paragraph Style="{StaticResource ReportEmptyCellParagrapgh}"></Paragraph>
+                    </TableCell>
+                    <TableCell Style="{StaticResource ReportNameListCell}">
+                        <Paragraph Style="{StaticResource ReportEmptyCellParagrapgh}"></Paragraph>
+                    </TableCell>
+                    <TableCell Style="{StaticResource ReportNameListCell}">
+                        <Paragraph Style="{StaticResource ReportEmptyCellParagrapgh}"></Paragraph>
+                    </TableCell>
+                    <TableCell Style="{StaticResource ReportNameListCell}">
+                        <Paragraph Style="{StaticResource ReportEmptyCellParagrapgh}"></Paragraph>
+                    </TableCell>
+                    <TableCell Style="{StaticResource ReportNameListCell}">
+                        <Paragraph Style="{StaticResource ReportEmptyCellParagrapgh}"></Paragraph>
+                    </TableCell>
+                    <TableCell Style="{StaticResource ReportNameListCell}">
+                        <Paragraph Style="{StaticResource ReportEmptyCellParagrapgh}"></Paragraph>
+                    </TableCell>
+                </TableRow>
+                <TableRow>
+                    <TableCell Style="{StaticResource ReportNameListCell}">
+                        <Paragraph Style="{StaticResource ReportEmptyCellParagrapgh}"></Paragraph>
+                    </TableCell>
+                    <TableCell Style="{StaticResource ReportNameListCell}">
+                        <Paragraph Style="{StaticResource ReportEmptyCellParagrapgh}"></Paragraph>
+                    </TableCell>
+                    <TableCell Style="{StaticResource ReportNameListCell}">
+                        <Paragraph Style="{StaticResource ReportEmptyCellParagrapgh}"></Paragraph>
+                    </TableCell>
+                    <TableCell Style="{StaticResource ReportNameListCell}">
+                        <Paragraph Style="{StaticResource ReportEmptyCellParagrapgh}"></Paragraph>
+                    </TableCell>
+                    <TableCell Style="{StaticResource ReportNameListCell}">
+                        <Paragraph Style="{StaticResource ReportEmptyCellParagrapgh}"></Paragraph>
+                    </TableCell>
+                    <TableCell Style="{StaticResource ReportNameListCell}">
+                        <Paragraph Style="{StaticResource ReportEmptyCellParagrapgh}"></Paragraph>
+                    </TableCell>
+                    <TableCell Style="{StaticResource ReportNameListCell}">
+                        <Paragraph Style="{StaticResource ReportEmptyCellParagrapgh}"></Paragraph>
+                    </TableCell>
+                    <TableCell Style="{StaticResource ReportNameListCell}">
+                        <Paragraph Style="{StaticResource ReportEmptyCellParagrapgh}"></Paragraph>
+                    </TableCell>
+                </TableRow>
+                <TableRow>
+                    <TableCell Style="{StaticResource ReportNameListCell}">
+                        <Paragraph Style="{StaticResource ReportEmptyCellParagrapgh}"></Paragraph>
+                    </TableCell>
+                    <TableCell Style="{StaticResource ReportNameListCell}">
+                        <Paragraph Style="{StaticResource ReportEmptyCellParagrapgh}"></Paragraph>
+                    </TableCell>
+                    <TableCell Style="{StaticResource ReportNameListCell}">
+                        <Paragraph Style="{StaticResource ReportEmptyCellParagrapgh}"></Paragraph>
+                    </TableCell>
+                    <TableCell Style="{StaticResource ReportNameListCell}">
+                        <Paragraph Style="{StaticResource ReportEmptyCellParagrapgh}"></Paragraph>
+                    </TableCell>
+                    <TableCell Style="{StaticResource ReportNameListCell}">
+                        <Paragraph Style="{StaticResource ReportEmptyCellParagrapgh}"></Paragraph>
+                    </TableCell>
+                    <TableCell Style="{StaticResource ReportNameListCell}">
+                        <Paragraph Style="{StaticResource ReportEmptyCellParagrapgh}"></Paragraph>
+                    </TableCell>
+                    <TableCell Style="{StaticResource ReportNameListCell}">
+                        <Paragraph Style="{StaticResource ReportEmptyCellParagrapgh}"></Paragraph>
+                    </TableCell>
+                    <TableCell Style="{StaticResource ReportNameListCell}">
+                        <Paragraph Style="{StaticResource ReportEmptyCellParagrapgh}"></Paragraph>
+                    </TableCell>
+                </TableRow>
+                <TableRow>
+                    <TableCell Style="{StaticResource ReportNameListCell}">
+                        <Paragraph Style="{StaticResource ReportEmptyCellParagrapgh}"></Paragraph>
+                    </TableCell>
+                    <TableCell Style="{StaticResource ReportNameListCell}">
+                        <Paragraph Style="{StaticResource ReportEmptyCellParagrapgh}"></Paragraph>
+                    </TableCell>
+                    <TableCell Style="{StaticResource ReportNameListCell}">
+                        <Paragraph Style="{StaticResource ReportEmptyCellParagrapgh}"></Paragraph>
+                    </TableCell>
+                    <TableCell Style="{StaticResource ReportNameListCell}">
+                        <Paragraph Style="{StaticResource ReportEmptyCellParagrapgh}"></Paragraph>
+                    </TableCell>
+                    <TableCell Style="{StaticResource ReportNameListCell}">
+                        <Paragraph Style="{StaticResource ReportEmptyCellParagrapgh}"></Paragraph>
+                    </TableCell>
+                    <TableCell Style="{StaticResource ReportNameListCell}">
+                        <Paragraph Style="{StaticResource ReportEmptyCellParagrapgh}"></Paragraph>
+                    </TableCell>
+                    <TableCell Style="{StaticResource ReportNameListCell}">
+                        <Paragraph Style="{StaticResource ReportEmptyCellParagrapgh}"></Paragraph>
+                    </TableCell>
+                    <TableCell Style="{StaticResource ReportNameListCell}">
+                        <Paragraph Style="{StaticResource ReportEmptyCellParagrapgh}"></Paragraph>
+                    </TableCell>
+                </TableRow>
+                <TableRow>
+                    <TableCell Style="{StaticResource ReportNameListCell}">
+                        <Paragraph Style="{StaticResource ReportEmptyCellParagrapgh}"></Paragraph>
+                    </TableCell>
+                    <TableCell Style="{StaticResource ReportNameListCell}">
+                        <Paragraph Style="{StaticResource ReportEmptyCellParagrapgh}"></Paragraph>
+                    </TableCell>
+                    <TableCell Style="{StaticResource ReportNameListCell}">
+                        <Paragraph Style="{StaticResource ReportEmptyCellParagrapgh}"></Paragraph>
+                    </TableCell>
+                    <TableCell Style="{StaticResource ReportNameListCell}">
+                        <Paragraph Style="{StaticResource ReportEmptyCellParagrapgh}"></Paragraph>
+                    </TableCell>
+                    <TableCell Style="{StaticResource ReportNameListCell}">
+                        <Paragraph Style="{StaticResource ReportEmptyCellParagrapgh}"></Paragraph>
+                    </TableCell>
+                    <TableCell Style="{StaticResource ReportNameListCell}">
+                        <Paragraph Style="{StaticResource ReportEmptyCellParagrapgh}"></Paragraph>
+                    </TableCell>
+                    <TableCell Style="{StaticResource ReportNameListCell}">
+                        <Paragraph Style="{StaticResource ReportEmptyCellParagrapgh}"></Paragraph>
+                    </TableCell>
+                    <TableCell Style="{StaticResource ReportNameListCell}">
+                        <Paragraph Style="{StaticResource ReportEmptyCellParagrapgh}"></Paragraph>
+                    </TableCell>
+                </TableRow>
+                <TableRow>
+                    <TableCell Style="{StaticResource ReportNameListCell}">
+                        <Paragraph Style="{StaticResource ReportEmptyCellParagrapgh}"></Paragraph>
+                    </TableCell>
+                    <TableCell Style="{StaticResource ReportNameListCell}">
+                        <Paragraph Style="{StaticResource ReportEmptyCellParagrapgh}"></Paragraph>
+                    </TableCell>
+                    <TableCell Style="{StaticResource ReportNameListCell}">
+                        <Paragraph Style="{StaticResource ReportEmptyCellParagrapgh}"></Paragraph>
+                    </TableCell>
+                    <TableCell Style="{StaticResource ReportNameListCell}">
+                        <Paragraph Style="{StaticResource ReportEmptyCellParagrapgh}"></Paragraph>
+                    </TableCell>
+                    <TableCell Style="{StaticResource ReportNameListCell}">
+                        <Paragraph Style="{StaticResource ReportEmptyCellParagrapgh}"></Paragraph>
+                    </TableCell>
+                    <TableCell Style="{StaticResource ReportNameListCell}">
+                        <Paragraph Style="{StaticResource ReportEmptyCellParagrapgh}"></Paragraph>
+                    </TableCell>
+                    <TableCell Style="{StaticResource ReportNameListCell}">
+                        <Paragraph Style="{StaticResource ReportEmptyCellParagrapgh}"></Paragraph>
+                    </TableCell>
+                    <TableCell Style="{StaticResource ReportNameListCell}">
+                        <Paragraph Style="{StaticResource ReportEmptyCellParagrapgh}"></Paragraph>
+                    </TableCell>
+                </TableRow>
+                <TableRow>
+                    <TableCell Style="{StaticResource ReportNameListCell}">
+                        <Paragraph Style="{StaticResource ReportCellName}">Safety Officer:</Paragraph>
+                    </TableCell>
+                    <TableCell ColumnSpan="7" RowSpan="2" BorderBrush="#FF555555" BorderThickness="0,0,0.5,0.5">
+                        <Paragraph Style="{StaticResource ReportApplianceCodes}" BorderThickness="1" BorderBrush="White">
+                            Appliances: Rescue = R, Rescue Support = RS, Support 1 = S1, Support 2 = S2, Transport = T, Own Vehicle = OV, Respond to Unit = U
+                        </Paragraph>
+                    </TableCell>
+                </TableRow>
+                <TableRow>
+                    <TableCell Style="{StaticResource ReportNameListCell}">
+                        <Paragraph Style="{StaticResource ReportEmptyCellParagrapgh}"></Paragraph>
+                    </TableCell>
+                </TableRow>
+            </TableRowGroup>
+        </Table>
+    </Section>
+    <Paragraph FontWeight="Bold" Margin="50,20,0,0" FontSize="11">Notes:</Paragraph>
+    <Table BorderThickness="0" CellSpacing="0" BorderBrush="#FF555555" Margin="50,0,50,0">
+        <Table.Columns>
+            <TableColumn Width="*" />
+        </Table.Columns>
+        <TableRowGroup>
+            <TableRow>
+                <TableCell BorderThickness="0,0,0,0.5" BorderBrush="#FF333333" />
+            </TableRow>
+            <TableRow>
+                <TableCell BorderThickness="0,0,0,0.5" BorderBrush="#FF333333" />
+            </TableRow>
+            <TableRow>
+                <TableCell BorderThickness="0,0,0,0.5" BorderBrush="#FF333333" />
+            </TableRow>
+            <TableRow>
+                <TableCell BorderThickness="0,0,0,0.5" BorderBrush="#FF333333" />
+            </TableRow>
+            <TableRow>
+                <TableCell BorderThickness="0,0,0,0.5" BorderBrush="#FF333333" />
+            </TableRow>
+            <TableRow>
+                <TableCell BorderThickness="0,0,0,0.5" BorderBrush="#FF333333" />
+            </TableRow>
+            <TableRow>
+                <TableCell BorderThickness="0,0,0,0.5" BorderBrush="#FF333333" />
+            </TableRow>
+            <TableRow>
+                <TableCell BorderThickness="0,0,0,0.5" BorderBrush="#FF333333" />
+            </TableRow>
+        </TableRowGroup>
+    </Table>
+</FlowDocument>
