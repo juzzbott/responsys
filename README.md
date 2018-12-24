@@ -11,4 +11,4 @@ The solution contains the following components:
 * __Model, Common, Logging__ - Nuget packages from the ResponseHub web application to re-use components.
 
 ## Build results
-[![Build status](https://juzzbott.visualstudio.com/ResponseHub/_apis/build/status/Responsys%20Application)]
+![Build status](https://juzzbott.visualstudio.com/ResponseHub/_apis/build/status/Responsys%20Application)
