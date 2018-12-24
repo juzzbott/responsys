@@ -1,25 +1,17 @@
-﻿using Enivate.ResponseHub.Common;
-using Enivate.ResponseHub.DataAccess;
-using Enivate.ResponseHub.Model;
+﻿using System;
+using System.Collections.Generic;
+using System.Configuration;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Documents;
+using System.Windows.Media.Imaging;
+
+using Enivate.ResponseHub.Common;
 using Enivate.ResponseHub.Model.Messages;
 using Enivate.ResponseHub.Model.Messages.Interface;
 using Enivate.ResponseHub.Model.Units;
 using Enivate.ResponseHub.Model.Units.Interface;
-using Enivate.ResponseHub.Responsys.UI.Services;
-using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace Enivate.ResponseHub.Responsys.UI
 {

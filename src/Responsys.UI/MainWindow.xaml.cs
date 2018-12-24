@@ -15,13 +15,13 @@ using Unity;
 
 using Enivate.ResponseHub.Common;
 using Enivate.ResponseHub.Logging;
-using Enivate.ResponseHub.DataAccess.Interface;
 using Enivate.ResponseHub.Model.Messages.Interface;
 using Enivate.ResponseHub.Model.Addresses.Interface;
 using Enivate.ResponseHub.Model.Units;
 using Enivate.ResponseHub.Model.Messages;
 using Enivate.ResponseHub.Model.Units.Interface;
 using Enivate.ResponseHub.Responsys.UI.Services;
+using System.IO;
 
 namespace Enivate.ResponseHub.Responsys.UI
 {
@@ -56,13 +56,13 @@ namespace Enivate.ResponseHub.Responsys.UI
 		/// </summary>
 		private JobMessage _currentJobMessageDisplayed;
 
+        private bool _enablePrinting;
+        private bool _databaseExists;
+
 		protected ILogger Log;
-		protected IMapIndexRepository MapIndexRepository;
-		protected IJobMessageService JobMessageService;
-		protected IDecoderStatusRepository DecoderStatusRepository;
-		protected IAddressService AddressService;
-        protected IMessagePrintRecordRepository MessagePrintRecordRepository;
-        protected IUnitService UnitService;
+
+        protected ResponseHubApiService MessageService;
+        protected PrintedMessageRecordService PrintRecordService;
 
         public MainWindow()
         {
@@ -70,12 +70,13 @@ namespace Enivate.ResponseHub.Responsys.UI
             UnityConfiguration.Container = new UnityContainer().LoadConfiguration();
 
             Log = ServiceLocator.Get<ILogger>();
-            MapIndexRepository = ServiceLocator.Get<IMapIndexRepository>();
-            JobMessageService = ServiceLocator.Get<IJobMessageService>();
-            DecoderStatusRepository = ServiceLocator.Get<IDecoderStatusRepository>();
-            AddressService = ServiceLocator.Get<IAddressService>();
-            MessagePrintRecordRepository = ServiceLocator.Get<IMessagePrintRecordRepository>();
-            UnitService = ServiceLocator.Get<IUnitService>();
+
+            MessageService = new ResponseHubApiService();
+            PrintRecordService = new PrintedMessageRecordService();
+
+            // Check if printing is enabled
+            _databaseExists = CheckDatabaseExists();
+            _enablePrinting = _databaseExists;
 
             InitializeComponent();
 
@@ -83,7 +84,7 @@ namespace Enivate.ResponseHub.Responsys.UI
 
         }
 
-		private async void _msgServiceTimer_Tick(object sender, EventArgs e)
+        private async void _msgServiceTimer_Tick(object sender, EventArgs e)
         {
             await GetLatestJobs();
 
@@ -95,14 +96,14 @@ namespace Enivate.ResponseHub.Responsys.UI
             bool jobsExist = false;
 
             // Submit the messages
-            IList<JobMessage> latestList = await JobMessageService.GetMostRecent(new List<string>() { _currentUnit.Capcode }, MessageType.Job ,50, 0);
+            IList<JobMessage> latestList = await MessageService.GetLatestMessages(_currentUnit.Id);
             latestList = latestList.OrderBy(i => i.Timestamp).ToList();
 
             IList<JobMessage> notPrintedJobs = new List<JobMessage>();
             IList<JobMessage> validJobs = new List<JobMessage>();
 
             // Loop through the jobs, skip any that start with RE:, as it's not actually a job
-            foreach (JobMessage message in latestList)
+            foreach (JobMessage message in latestList.Where(i => i.Type == MessageType.Job))
             {
 
                 // Determine that jobs exist
@@ -115,7 +116,7 @@ namespace Enivate.ResponseHub.Responsys.UI
 
                 validJobs.Add(message);
 
-                if (await MessagePrintRecordRepository.PrintRecordExistsForJob(message.Id))
+                if (PrintRecordService.PrintRecordExistsForJob(message.Id))
                 {
                     continue;
                 }
@@ -138,7 +139,17 @@ namespace Enivate.ResponseHub.Responsys.UI
                 foreach(JobMessage message in notPrintedJobs)
                 {
                     UpdateJobMessageDisplay(message, true);
+
+                    // If the database doesn't exist, just create the printed records for now
+                    if (!_databaseExists)
+                    {
+                        PrintRecordService.CreatePrintRecord(message.Id, DateTime.UtcNow);
+                    }
                 }
+
+                // Set the database as exists
+                _databaseExists = true;
+
             }
             else
             {
@@ -226,6 +237,13 @@ namespace Enivate.ResponseHub.Responsys.UI
 
         private void PrintCurrentJob(JobMessage job, string imageFilename)
         {
+
+            // If printing is disabled, just exit
+            if (!_enablePrinting)
+            {
+                return;
+            }
+
             PrintService printSvc = new PrintService();
             Dictionary<string, Style> styles = new Dictionary<string, Style>();
             styles.Add("ReportJobNumber", (Style)FindResource("ReportJobNumber"));
@@ -236,7 +254,7 @@ namespace Enivate.ResponseHub.Responsys.UI
             styles.Add("ReportMapImage", (Style)FindResource("ReportMapImage"));
             styles.Add("ReportMapImageContainer", (Style)FindResource("ReportMapImageContainer"));
             styles.Add("ReportMessageContent", (Style)FindResource("ReportMessageContent"));
-            printSvc.PrintJobReport(job, imageFilename, styles, MessagePrintRecordRepository);
+            printSvc.PrintJobReport(job, imageFilename, styles, PrintRecordService);
         }
 
         private void _jobTimer_Tick(object sender, EventArgs e)
@@ -348,8 +366,19 @@ namespace Enivate.ResponseHub.Responsys.UI
             PrintCurrentJob(_currentJobMessageDisplayed, imageFilename);
         }
 
+        private void EnablePrintingCommandBinding_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            // Set the enable printing flag
+            _enablePrinting = !_enablePrinting;
+            MnuEnablePrinting.IsChecked = _enablePrinting;
+        }
+
         private async void Window_Initialized(object sender, EventArgs e)
         {
+
+            // Set the printing enabled flag
+            MnuEnablePrinting.IsChecked = _enablePrinting;
+
             int timerInterval = 10000;
 
             // If there is no interval setting, then log warning
@@ -376,7 +405,7 @@ namespace Enivate.ResponseHub.Responsys.UI
                 Application.Current.Shutdown(1);
             }
 
-            _currentUnit = await UnitService.GetById(unitId);
+            _currentUnit = await MessageService.GetUnit(unitId);
             
             // Initialise the message timer
             _msgServiceTimer = new DispatcherTimer();
@@ -385,6 +414,13 @@ namespace Enivate.ResponseHub.Responsys.UI
 
             // Get latest jobs on load
             await GetLatestJobs();
+        }
+
+        private bool CheckDatabaseExists()
+        {
+            LiteDB.ConnectionString connectionString = new LiteDB.ConnectionString(ConfigurationManager.ConnectionStrings["LiteDB"].ConnectionString);
+            string filename = connectionString.Filename;
+            return File.Exists(filename);
         }
     }
 }

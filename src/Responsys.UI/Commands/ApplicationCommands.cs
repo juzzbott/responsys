@@ -18,6 +18,8 @@ namespace Enivate.ResponseHub.Responsys.UI.Commands
 
         public static RoutedUICommand PrintJobReportCommand = new RoutedUICommand("Print Job Report", "PrintJobReport", typeof(ApplicationCommands));
 
+        public static RoutedUICommand EnablePrintingCommand = new RoutedUICommand("Enable Job Printing", "EnableJobPrinting", typeof(ApplicationCommands));
+
         public static RoutedUICommand ExitCommand = new RoutedUICommand("Exit", "Exit", typeof(ApplicationCommands));
 
     }

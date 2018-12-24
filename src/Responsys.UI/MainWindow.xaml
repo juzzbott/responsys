@@ -13,6 +13,7 @@
         <CommandBinding Command="{x:Static commands:ApplicationCommands.AlwaysOnTopCommand}" Executed="AlwaysOnTopCommandBinding_Executed" />
         <CommandBinding Command="{x:Static commands:ApplicationCommands.TestJobReportCommand}" Executed="TestJobReportCommandBinding_Executed" />
         <CommandBinding Command="{x:Static commands:ApplicationCommands.PrintJobReportCommand}" Executed="PrintJobReportCommandBinding_Executed" />
+        <CommandBinding Command="{x:Static commands:ApplicationCommands.EnablePrintingCommand}" Executed="EnablePrintingCommandBinding_Executed" />
         <CommandBinding Command="{x:Static commands:ApplicationCommands.ExitCommand}" Executed="ExitCommandBinding_Executed" />
     </Window.CommandBindings>
     <Window.InputBindings>
@@ -26,6 +27,7 @@
             <MenuItem Header="_Always On Top" Name="MnuAlwaysOnTop" IsEnabled="True" IsCheckable="True" IsChecked="False" Command="{x:Static commands:ApplicationCommands.AlwaysOnTopCommand}" InputGestureText="Ctrl+A" />
             <Separator />
             <MenuItem Header="_View Test Report" Name="MnuViewTestReport" Command="{x:Static commands:ApplicationCommands.TestJobReportCommand}" Visibility="Collapsed" />
+            <MenuItem Header="_Enable Printed Reports" Name="MnuEnablePrinting" Command="{x:Static commands:ApplicationCommands.EnablePrintingCommand}" />
             <MenuItem Header="_Print Current Report" Name="MnuPrintCurrentReport" Command="{x:Static commands:ApplicationCommands.PrintJobReportCommand}" />
             <Separator />
             <MenuItem Header="E_xit" Name="MnuExit" Command="{x:Static commands:ApplicationCommands.ExitCommand}" />
