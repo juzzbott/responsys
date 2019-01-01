@@ -267,58 +267,6 @@
                 </TableRow>
                 <TableRow>
                     <TableCell Style="{StaticResource ReportNameListCell}">
-                        <Paragraph Style="{StaticResource ReportEmptyCellParagrapgh}"></Paragraph>
-                    </TableCell>
-                    <TableCell Style="{StaticResource ReportNameListCell}">
-                        <Paragraph Style="{StaticResource ReportEmptyCellParagrapgh}"></Paragraph>
-                    </TableCell>
-                    <TableCell Style="{StaticResource ReportNameListCell}">
-                        <Paragraph Style="{StaticResource ReportEmptyCellParagrapgh}"></Paragraph>
-                    </TableCell>
-                    <TableCell Style="{StaticResource ReportNameListCell}">
-                        <Paragraph Style="{StaticResource ReportEmptyCellParagrapgh}"></Paragraph>
-                    </TableCell>
-                    <TableCell Style="{StaticResource ReportNameListCell}">
-                        <Paragraph Style="{StaticResource ReportEmptyCellParagrapgh}"></Paragraph>
-                    </TableCell>
-                    <TableCell Style="{StaticResource ReportNameListCell}">
-                        <Paragraph Style="{StaticResource ReportEmptyCellParagrapgh}"></Paragraph>
-                    </TableCell>
-                    <TableCell Style="{StaticResource ReportNameListCell}">
-                        <Paragraph Style="{StaticResource ReportEmptyCellParagrapgh}"></Paragraph>
-                    </TableCell>
-                    <TableCell Style="{StaticResource ReportNameListCell}">
-                        <Paragraph Style="{StaticResource ReportEmptyCellParagrapgh}"></Paragraph>
-                    </TableCell>
-                </TableRow>
-                <TableRow>
-                    <TableCell Style="{StaticResource ReportNameListCell}">
-                        <Paragraph Style="{StaticResource ReportEmptyCellParagrapgh}"></Paragraph>
-                    </TableCell>
-                    <TableCell Style="{StaticResource ReportNameListCell}">
-                        <Paragraph Style="{StaticResource ReportEmptyCellParagrapgh}"></Paragraph>
-                    </TableCell>
-                    <TableCell Style="{StaticResource ReportNameListCell}">
-                        <Paragraph Style="{StaticResource ReportEmptyCellParagrapgh}"></Paragraph>
-                    </TableCell>
-                    <TableCell Style="{StaticResource ReportNameListCell}">
-                        <Paragraph Style="{StaticResource ReportEmptyCellParagrapgh}"></Paragraph>
-                    </TableCell>
-                    <TableCell Style="{StaticResource ReportNameListCell}">
-                        <Paragraph Style="{StaticResource ReportEmptyCellParagrapgh}"></Paragraph>
-                    </TableCell>
-                    <TableCell Style="{StaticResource ReportNameListCell}">
-                        <Paragraph Style="{StaticResource ReportEmptyCellParagrapgh}"></Paragraph>
-                    </TableCell>
-                    <TableCell Style="{StaticResource ReportNameListCell}">
-                        <Paragraph Style="{StaticResource ReportEmptyCellParagrapgh}"></Paragraph>
-                    </TableCell>
-                    <TableCell Style="{StaticResource ReportNameListCell}">
-                        <Paragraph Style="{StaticResource ReportEmptyCellParagrapgh}"></Paragraph>
-                    </TableCell>
-                </TableRow>
-                <TableRow>
-                    <TableCell Style="{StaticResource ReportNameListCell}">
                         <Paragraph Style="{StaticResource ReportCellName}">Safety Officer:</Paragraph>
                     </TableCell>
                     <TableCell ColumnSpan="7" RowSpan="2" BorderBrush="#FF555555" BorderThickness="0,0,0.5,0.5">
@@ -341,9 +289,6 @@
             <TableColumn Width="*" />
         </Table.Columns>
         <TableRowGroup>
-            <TableRow>
-                <TableCell BorderThickness="0,0,0,0.5" BorderBrush="#FF333333" />
-            </TableRow>
             <TableRow>
                 <TableCell BorderThickness="0,0,0,0.5" BorderBrush="#FF333333" />
             </TableRow>

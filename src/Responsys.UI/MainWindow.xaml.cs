@@ -249,6 +249,7 @@ namespace Enivate.ResponseHub.Responsys.UI
             styles.Add("ReportJobNumber", (Style)FindResource("ReportJobNumber"));
             styles.Add("ReportJobNumberEmergency", (Style)FindResource("ReportJobNumberEmergency"));
             styles.Add("ReportTimestamp", (Style)FindResource("ReportTimestamp"));
+            styles.Add("ReportMapReferenceParagraph", (Style)FindResource("ReportMapReferenceParagraph"));
             styles.Add("ReportMapReference", (Style)FindResource("ReportMapReference"));
             styles.Add("ReportAddress", (Style)FindResource("ReportAddress"));
             styles.Add("ReportMapImage", (Style)FindResource("ReportMapImage"));

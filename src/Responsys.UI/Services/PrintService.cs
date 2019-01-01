@@ -14,11 +14,11 @@ namespace Enivate.ResponseHub.Responsys.UI.Services
 {
     public class PrintService
     {
-		
-		public void PrintJobReport(JobMessage job, string mapImagePath, Dictionary<string, Style> styles, PrintedMessageRecordService printRecordService)
-		{
 
-			FlowDocument flowDoc = (FlowDocument)Application.LoadComponent(new Uri("Assets/PrintedJobTemplate.xaml", UriKind.Relative));
+        public void PrintJobReport(JobMessage job, string mapImagePath, Dictionary<string, Style> styles, PrintedMessageRecordService printRecordService)
+        {
+
+            FlowDocument flowDoc = (FlowDocument)Application.LoadComponent(new Uri("Assets/PrintedJobTemplate.xaml", UriKind.Relative));
             Section sctnHeader = new Section
             {
                 BorderThickness = new Thickness(0)
@@ -36,18 +36,18 @@ namespace Enivate.ResponseHub.Responsys.UI.Services
             };
             sctnHeader.Blocks.Add(pghTimestamp);
 
-            Paragraph pghMapReference = new Paragraph(new Run(job.Location.MapReference))
+            Span mapRef = new Span(new Bold(new Run(job.Location.MapReference)));
+            mapRef.Style = (Style)styles["ReportMapReference"];
+            Span address = new Span(new Run(String.Format(" - {0}", job.Location.Address.FormattedAddress)));
+            address.Style = (Style)styles["ReportAddress"];
+            Paragraph pghMapReference = new Paragraph()
             {
-                Style = (Style)styles["ReportMapReference"]
+                Style = (Style)styles["ReportMapReferenceParagraph"]
             };
+            pghMapReference.Inlines.Add(mapRef);
+            pghMapReference.Inlines.Add(address);
             sctnHeader.Blocks.Add(pghMapReference);
-
-            Paragraph pghAddress = new Paragraph(new Run(job.Location.Address.FormattedAddress))
-            {
-                Style = (Style)styles["ReportAddress"]
-            };
-            sctnHeader.Blocks.Add(pghAddress);
-
+            
             Image imgMap = new Image
             {
                 Source = new BitmapImage(new Uri(mapImagePath, UriKind.Relative)),

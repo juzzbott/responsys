@@ -99,37 +99,38 @@
         <Setter Property="BorderThickness" Value="0" />
     </Style>
 
-    <Style BasedOn="{StaticResource {x:Type Paragraph}}" TargetType="Paragraph" x:Key="ReportMapReference">
+    <Style BasedOn="{StaticResource {x:Type Paragraph}}" TargetType="Paragraph" x:Key="ReportMapReferenceParagraph">
         <Setter Property="Foreground" Value="#FF333333" />
         <Setter Property="FontSize" Value="20" />
         <Setter Property="LineHeight" Value="20" />
-        <Setter Property="FontWeight" Value="Bold" />
         <Setter Property="TextAlignment" Value="Center" />
         <Setter Property="Margin" Value="0,10,0,0" />
         <Setter Property="BorderThickness" Value="0" />
     </Style>
 
-    <Style BasedOn="{StaticResource {x:Type Paragraph}}" TargetType="Paragraph" x:Key="ReportAddress">
+    <Style TargetType="Span" x:Key="ReportMapReference">
+        <Setter Property="Foreground" Value="#FF333333" />
+        <Setter Property="FontSize" Value="20" />
+        <Setter Property="FontWeight" Value="Bold" />
+    </Style>
+
+    <Style TargetType="Span" x:Key="ReportAddress">
         <Setter Property="Foreground" Value="#FF333333" />
         <Setter Property="FontSize" Value="18" />
-        <Setter Property="LineHeight" Value="18" />
-        <Setter Property="TextAlignment" Value="Center" />
-        <Setter Property="Margin" Value="0,10,0,0" />
-        <Setter Property="BorderThickness" Value="0" />
     </Style>
 
     <Style BasedOn="{StaticResource {x:Type Paragraph}}" TargetType="Paragraph" x:Key="ReportMessageContent">
         <Setter Property="Foreground" Value="#FF333333" />
-        <Setter Property="FontSize" Value="18" />
-        <Setter Property="LineHeight" Value="18" />
+        <Setter Property="FontSize" Value="16" />
+        <Setter Property="LineHeight" Value="16" />
         <Setter Property="TextAlignment" Value="Center" />
         <Setter Property="Margin" Value="0,15,0,0" />
         <Setter Property="BorderThickness" Value="0" />
     </Style>
 
     <Style TargetType="Image" x:Key="ReportMapImage">
-        <Setter Property="Height" Value="450" />
-        <Setter Property="Width" Value="450" />
+        <Setter Property="Height" Value="400" />
+        <Setter Property="Width" Value="400" />
         <Setter Property="Margin" Value="0,15,0,0" />
     </Style>
 
