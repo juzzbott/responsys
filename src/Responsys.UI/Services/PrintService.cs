@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Printing;
 using System.Threading.Tasks;
 using System.Windows;
@@ -23,12 +24,19 @@ namespace Enivate.ResponseHub.Responsys.UI.Services
             LocalPrintServer localPrintServer = new LocalPrintServer();
             PrintQueue printQueue = localPrintServer.DefaultPrintQueue;
 
+            // Get the print count
+            int printCount = 1;
+            if (!string.IsNullOrEmpty(ConfigurationManager.AppSettings["PrintCopyCount"]))
+            {
+                int.TryParse(ConfigurationManager.AppSettings["PrintCopyCount"], out printCount);
+            }
+
             // Create a XpsDocumentWriter object, open a Windows common print dialog.
             // This methods returns a ref parameter that represents information about the dimensions of the printer media.
             XpsDocumentWriter docWriter = PrintQueue.CreateXpsDocumentWriter(printQueue);
             PageImageableArea ia = printQueue.GetPrintCapabilities().PageImageableArea;
             PrintTicket pt = printQueue.UserPrintTicket;
-            //pt.CopyCount = 2;
+            pt.CopyCount = printCount;
 
             if (docWriter != null && ia != null)
             {
