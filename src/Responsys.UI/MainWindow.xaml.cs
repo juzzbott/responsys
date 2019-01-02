@@ -59,7 +59,7 @@ namespace Enivate.ResponseHub.Responsys.UI
         private bool _enablePrinting;
         private bool _databaseExists;
 
-		protected ILogger Log;
+		protected ILogger Logger;
 
         protected ResponseHubApiService MessageService;
         protected PrintedMessageRecordService PrintRecordService;
@@ -69,7 +69,7 @@ namespace Enivate.ResponseHub.Responsys.UI
             // Unity configuration loader
             UnityConfiguration.Container = new UnityContainer().LoadConfiguration();
 
-            Log = ServiceLocator.Get<ILogger>();
+            Logger = ServiceLocator.Get<ILogger>();
 
             MessageService = new ResponseHubApiService();
             PrintRecordService = new PrintedMessageRecordService();
@@ -255,7 +255,7 @@ namespace Enivate.ResponseHub.Responsys.UI
             styles.Add("ReportMapImage", (Style)FindResource("ReportMapImage"));
             styles.Add("ReportMapImageContainer", (Style)FindResource("ReportMapImageContainer"));
             styles.Add("ReportMessageContent", (Style)FindResource("ReportMessageContent"));
-            printSvc.PrintJobReport(job, imageFilename, styles, PrintRecordService);
+            printSvc.PrintJobReport(job, imageFilename, styles, PrintRecordService, Logger);
         }
 
         private void _jobTimer_Tick(object sender, EventArgs e)
@@ -322,14 +322,24 @@ namespace Enivate.ResponseHub.Responsys.UI
             if (WindowStyle == WindowStyle.SingleBorderWindow)
             {
                 // Fullscreen
+                Visibility = Visibility.Collapsed;
                 WindowStyle = WindowStyle.None;
+                WindowState = WindowState.Maximized;
+                ResizeMode = ResizeMode.NoResize;
                 MnuFullScreen.IsChecked = true;
+                ShowInTaskbar = false;
+                Visibility = Visibility.Visible;
             }
             else
             {
                 // Windowed
+                Visibility = Visibility.Collapsed;
                 WindowStyle = WindowStyle.SingleBorderWindow;
+                WindowState = WindowState.Maximized;
+                ResizeMode = ResizeMode.CanResizeWithGrip;
                 MnuFullScreen.IsChecked = false;
+                ShowInTaskbar = true;
+                Visibility = Visibility.Visible;
             }
         }
 
@@ -343,7 +353,7 @@ namespace Enivate.ResponseHub.Responsys.UI
             }
             else
             {
-                // Windowed
+                // Top most
                 Topmost = true;
                 MnuAlwaysOnTop.IsChecked = true;
             }
@@ -385,7 +395,7 @@ namespace Enivate.ResponseHub.Responsys.UI
             // If there is no interval setting, then log warning
             if (String.IsNullOrEmpty(ConfigurationManager.AppSettings[_serviceIntervalKey]))
             {
-                await Log.Warn("The configuration setting 'ServiceTimerInterval' is not present in the configuration. Defaulting to 10 seconds.");
+                await Logger.Warn("The configuration setting 'ServiceTimerInterval' is not present in the configuration. Defaulting to 10 seconds.");
             }
             else
             {

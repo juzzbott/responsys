@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Test Job Report" Height="600" Width="1600" Loaded="Window_Loaded" WindowState="Maximized">
     <Grid>
-        <FlowDocumentScrollViewer Name="flowScroller">
+        <FlowDocumentScrollViewer Name="flowScroller" Width="21cm" MaxWidth="21cm" Margin="20" BorderBrush="#FFBBBBBB" BorderThickness="2">
             
         </FlowDocumentScrollViewer>
     </Grid>
