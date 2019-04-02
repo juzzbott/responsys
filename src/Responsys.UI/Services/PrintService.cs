@@ -36,26 +36,29 @@ namespace Enivate.ResponseHub.Responsys.UI.Services
             XpsDocumentWriter docWriter = PrintQueue.CreateXpsDocumentWriter(printQueue);
             PageImageableArea ia = printQueue.GetPrintCapabilities().PageImageableArea;
             PrintTicket pt = printQueue.UserPrintTicket;
-            pt.CopyCount = printCount;
+            //pt.CopyCount = printCount;
 
-            if (docWriter != null && ia != null)
+            for (int i = 0; i < printCount; i++)
             {
-                DocumentPaginator paginator = ((IDocumentPaginatorSource)flowDoc).DocumentPaginator;
+                if (docWriter != null && ia != null)
+                {
+                    DocumentPaginator paginator = ((IDocumentPaginatorSource)flowDoc).DocumentPaginator;
 
-                // Change the PageSize and PagePadding for the document to match the CanvasSize for the printer device.
-                paginator.PageSize = new Size((double)ia.ExtentWidth, (double)ia.ExtentHeight);
-                Thickness pagePadding = flowDoc.PagePadding;
-                flowDoc.PagePadding = new Thickness(
-                Math.Max(ia.OriginWidth, pagePadding.Left),
-                Math.Max(ia.OriginHeight, pagePadding.Top),
-                Math.Max((double)pt.PageMediaSize.Width - (double)(ia.OriginWidth + ia.ExtentWidth), pagePadding.Right),
-                Math.Max((double)pt.PageMediaSize.Height - (double)(ia.OriginHeight + ia.ExtentHeight), pagePadding.Bottom));
-                flowDoc.ColumnWidth = double.PositiveInfinity;
-                // Send DocumentPaginator to the printer.
-                docWriter.Write(paginator);
+                    // Change the PageSize and PagePadding for the document to match the CanvasSize for the printer device.
+                    paginator.PageSize = new Size((double)ia.ExtentWidth, (double)ia.ExtentHeight);
+                    Thickness pagePadding = flowDoc.PagePadding;
+                    flowDoc.PagePadding = new Thickness(
+                    Math.Max(ia.OriginWidth, pagePadding.Left),
+                    Math.Max(ia.OriginHeight, pagePadding.Top),
+                    Math.Max((double)pt.PageMediaSize.Width - (double)(ia.OriginWidth + ia.ExtentWidth), pagePadding.Right),
+                    Math.Max((double)pt.PageMediaSize.Height - (double)(ia.OriginHeight + ia.ExtentHeight), pagePadding.Bottom));
+                    flowDoc.ColumnWidth = double.PositiveInfinity;
+                    // Send DocumentPaginator to the printer.
+                    docWriter.Write(paginator);
 
-                // Log that the job was printed
-                logger.Info(String.Format("Job number '{0}' printed", job.JobNumber));
+                    // Log that the job was printed
+                    logger.Info(String.Format("Job number '{0}' printed", job.JobNumber));
+                }
             }
 
             // Add the print report
