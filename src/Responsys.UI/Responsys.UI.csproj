@@ -55,17 +55,17 @@
       <HintPath>..\packages\Newtonsoft.Json.12.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="ReachFramework" />
-    <Reference Include="ResponseHub.Caching, Version=3.9.5.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\ResponseHub.Caching.3.9.5\lib\net472\ResponseHub.Caching.dll</HintPath>
+    <Reference Include="ResponseHub.Caching, Version=4.1.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ResponseHub.Caching.4.1.1\lib\net472\ResponseHub.Caching.dll</HintPath>
     </Reference>
-    <Reference Include="ResponseHub.Common, Version=3.9.5.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\ResponseHub.Common.3.9.5\lib\net472\ResponseHub.Common.dll</HintPath>
+    <Reference Include="ResponseHub.Common, Version=4.1.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ResponseHub.Common.4.1.1\lib\net472\ResponseHub.Common.dll</HintPath>
     </Reference>
-    <Reference Include="ResponseHub.Logging, Version=3.9.5.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\ResponseHub.Logging.3.9.5\lib\net472\ResponseHub.Logging.dll</HintPath>
+    <Reference Include="ResponseHub.Logging, Version=4.1.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ResponseHub.Logging.4.1.1\lib\net472\ResponseHub.Logging.dll</HintPath>
     </Reference>
-    <Reference Include="ResponseHub.Model, Version=3.9.5.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\ResponseHub.Model.3.9.5\lib\net472\ResponseHub.Model.dll</HintPath>
+    <Reference Include="ResponseHub.Model, Version=4.1.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ResponseHub.Model.4.1.1\lib\net472\ResponseHub.Model.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
@@ -130,8 +130,8 @@
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
-    <Reference Include="WpfAnimatedGif, Version=1.4.17.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\WpfAnimatedGif.1.4.17\lib\net\WpfAnimatedGif.dll</HintPath>
+    <Reference Include="WpfAnimatedGif, Version=1.4.18.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\WpfAnimatedGif.1.4.18\lib\net\WpfAnimatedGif.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

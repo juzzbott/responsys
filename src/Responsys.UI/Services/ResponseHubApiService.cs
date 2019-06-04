@@ -2,7 +2,10 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
+using System.Net;
 using System.Net.Http;
+using System.Net.Security;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -38,6 +41,22 @@ namespace Enivate.ResponseHub.Responsys.UI.Services
 
         public async Task<Unit> GetUnit(Guid unitId)
         {
+
+            if (_serviceEndpointUrl.ToLower().StartsWith("https://dev."))
+            {
+                // Disabling certificate validation can expose you to a man-in-the-middle attack
+                // which may allow your encrypted message to be read by an attacker
+                // https://stackoverflow.com/a/14907718/740639
+                ServicePointManager.ServerCertificateValidationCallback =
+                    delegate (
+                        object s,
+                        X509Certificate certificate,
+                        X509Chain chain,
+                        SslPolicyErrors sslPolicyErrors
+                    ) {
+                        return true;
+                    };
+            }
 
             // Define the url
             string url = String.Format("{0}/units/{1}", _serviceEndpointUrl, unitId);

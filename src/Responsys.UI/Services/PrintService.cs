@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Linq;
 using System.Printing;
 using System.Threading.Tasks;
 using System.Windows;
@@ -10,16 +11,17 @@ using System.Windows.Media.Imaging;
 using System.Windows.Xps;
 using Enivate.ResponseHub.Logging;
 using Enivate.ResponseHub.Model.Messages;
+using Enivate.ResponseHub.Model.Units;
 
 namespace Enivate.ResponseHub.Responsys.UI.Services
 {
     public class PrintService
     {
 
-        public void PrintJobReport(JobMessage job, string mapImagePath, Dictionary<string, Style> styles, PrintedMessageRecordService printRecordService, ILogger logger)
+        public void PrintJobReport(JobMessage job, string mapImagePath, Dictionary<string, Style> styles, PrintedMessageRecordService printRecordService, Unit currentUnit, ILogger logger)
         {
             // Get the formatted flow document.
-            FlowDocument flowDoc = GetFormattedDocument(job, mapImagePath, styles);
+            FlowDocument flowDoc = GetFormattedDocument(job, mapImagePath, styles, currentUnit);
 
             LocalPrintServer localPrintServer = new LocalPrintServer();
             PrintQueue printQueue = localPrintServer.DefaultPrintQueue;
@@ -70,7 +72,7 @@ namespace Enivate.ResponseHub.Responsys.UI.Services
         /// <param name="mapImagePath">The path to the image file.</param>
         /// <param name="styles">The list of styles to format with the document.</param>
         /// <returns></returns>
-        public static FlowDocument GetFormattedDocument(JobMessage job, string mapImagePath, Dictionary<string, Style> styles)
+        public static FlowDocument GetFormattedDocument(JobMessage job, string mapImagePath, Dictionary<string, Style> styles, Unit currentUnit)
         {
             FlowDocument flowDoc = (FlowDocument)Application.LoadComponent(new Uri("Assets/PrintedJobTemplate.xaml", UriKind.Relative));
             Section sctnHeader = new Section
@@ -80,7 +82,7 @@ namespace Enivate.ResponseHub.Responsys.UI.Services
 
             Paragraph pghJobNumber = new Paragraph(new Run(job.JobNumber))
             {
-                Style = (job.Priority == MessagePriority.Emergency ? styles["ReportJobNumberEmergency"] : styles["ReportJobNumber"])
+                Style = (job.Capcodes.FirstOrDefault(i => i.Capcode == currentUnit.Capcode).Priority == MessagePriority.Emergency ? styles["ReportJobNumberEmergency"] : styles["ReportJobNumber"])
             };
             sctnHeader.Blocks.Add(pghJobNumber);
 

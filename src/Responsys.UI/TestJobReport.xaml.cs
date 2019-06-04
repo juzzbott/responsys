@@ -66,7 +66,7 @@ namespace Enivate.ResponseHub.Responsys.UI
             styles.Add("ReportMapImage", (Style)FindResource("ReportMapImage"));
             styles.Add("ReportMapImageContainer", (Style)FindResource("ReportMapImageContainer"));
             styles.Add("ReportMessageContent", (Style)FindResource("ReportMessageContent"));
-            FlowDocument flowDoc = PrintService.GetFormattedDocument(job, "/Responsys;component/assets/test-map-image.png", styles);
+            FlowDocument flowDoc = PrintService.GetFormattedDocument(job, "/Responsys;component/assets/test-map-image.png", styles, _currentUnit);
 
             flowScroller.Document = flowDoc;
         }

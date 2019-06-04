@@ -58,6 +58,7 @@ namespace Enivate.ResponseHub.Responsys.UI
 
         private bool _enablePrinting;
         private bool _databaseExists;
+        private bool _initialLoad = true;
 
 		protected ILogger Logger;
 
@@ -138,10 +139,10 @@ namespace Enivate.ResponseHub.Responsys.UI
             {
                 foreach(JobMessage message in notPrintedJobs)
                 {
-                    UpdateJobMessageDisplay(message, true);
+                    UpdateJobMessageDisplay(message, !_initialLoad);
 
-                    // If the database doesn't exist, just create the printed records for now
-                    if (!_databaseExists)
+                    // If the database exist, just create the printed records for now
+                    if (_databaseExists)
                     {
                         PrintRecordService.CreatePrintRecord(message.Id, DateTime.UtcNow);
                     }
@@ -157,7 +158,10 @@ namespace Enivate.ResponseHub.Responsys.UI
                 JobMessage latestMessage = validJobs.OrderByDescending(i => i.Timestamp).FirstOrDefault();
                 UpdateJobMessageDisplay(latestMessage, false);
             }
-            
+
+            // We've done the initial load, so flag that as false
+            _initialLoad = false;
+
             // If the msg service timer is not started, then start it
             if (!_msgServiceTimer.IsEnabled)
             {
@@ -188,7 +192,7 @@ namespace Enivate.ResponseHub.Responsys.UI
             GrdJobDetails.Visibility = Visibility.Visible;
 
             LblJobNumber.Content = job.JobNumber;
-            LblJobNumber.Style = (job.Priority == MessagePriority.Emergency ? (Style)FindResource("JobNumberLabelEmergency") : (Style)FindResource("JobNumberLabel"));
+            LblJobNumber.Style = (job.Capcodes.FirstOrDefault(i => i.Capcode == _currentUnit.Capcode).Priority == MessagePriority.Emergency ? (Style)FindResource("JobNumberLabelEmergency") : (Style)FindResource("JobNumberLabel"));
 
             if (job.Location != null)
             {
@@ -255,7 +259,7 @@ namespace Enivate.ResponseHub.Responsys.UI
             styles.Add("ReportMapImage", (Style)FindResource("ReportMapImage"));
             styles.Add("ReportMapImageContainer", (Style)FindResource("ReportMapImageContainer"));
             styles.Add("ReportMessageContent", (Style)FindResource("ReportMessageContent"));
-            printSvc.PrintJobReport(job, imageFilename, styles, PrintRecordService, Logger);
+            printSvc.PrintJobReport(job, imageFilename, styles, PrintRecordService, _currentUnit, Logger);
         }
 
         private void _jobTimer_Tick(object sender, EventArgs e)
@@ -287,7 +291,7 @@ namespace Enivate.ResponseHub.Responsys.UI
 				LblTimer.Content = String.Format("{0}:{1}:{2}", (int)elapsedTime.TotalHours, elapsedTime.Minutes.ToString("D2"), elapsedTime.Seconds.ToString("D2"));
 			}
 
-			if (job.Priority == MessagePriority.Emergency)
+			if (job.Capcodes.FirstOrDefault(i => i.Capcode == _currentUnit.Capcode).Priority == MessagePriority.Emergency)
 			{
 				// Set the styles
 				if (elapsedTime.TotalMinutes < 5)
